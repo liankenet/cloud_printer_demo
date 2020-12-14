@@ -38,7 +38,7 @@ class CloudPrinter
       "ApiKey: " . $this->api_key
     );
     if ($method == "POST") {
-      $headers = array_push($headers, 'Content-Type: ' . $content_type);
+      array_push($headers, 'Content-Type: ' . $content_type);
     }
 
     curl_setopt_array($curl, array(
