@@ -10,7 +10,7 @@
 
 ```php
 include("cloud_printer.php");
-$cloud_printer = new CloudPrinter("API Key", '设备ID', '设备密码');
+$cloud_printer = new CloudPrinter("API Key", '设备ID', '设备密码', true);
 ```
 
 ### 刷新设备信息
