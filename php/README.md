@@ -56,6 +56,12 @@ $task = $cloud_printer->addJob($device_port, $printer_model, 9, new CURLFile(rea
 print_r($task);
 ```
 
+如需从内存数据流上传文件，参考：
+
+https://segmentfault.com/a/1190000000635183
+
+https://stackoverflow.com/questions/4003989/upload-a-file-using-file-get-contents/4247082#4247082
+
 ### 查询任务结果
 
 ```php
