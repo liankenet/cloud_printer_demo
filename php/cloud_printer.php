@@ -87,9 +87,22 @@ class CloudPrinter
     return $response->data;
   }
 
+  public function ayncRefreshDeviceInfo()
+  /*
+  * 异步刷新设备信息，包括打印机信息
+  */
+  {
+    $data = array(
+      "deviceId" => $this->device_id,
+      "deviceKey" => $this->device_key,
+    );
+    $response = $this->requests("GET", 'api/device/async_refresh_device_info?' . http_build_query($data));
+    return $response;
+  }
+  
   public function refreshDeviceInfo()
   /*
-  * 刷新设备信息，包括打印机信息
+  * 同步刷新设备信息，包括打印机信息
   */
   {
     $data = array(
