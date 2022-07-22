@@ -87,7 +87,7 @@ class CloudPrinter
     return $response->data;
   }
 
-  public function ayncRefreshDeviceInfo()
+  public function asyncRefreshDeviceInfo()
   /*
   * 异步刷新设备信息，包括打印机信息
   */
