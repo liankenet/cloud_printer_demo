@@ -13,28 +13,28 @@ include("cloud_printer.php");
 $cloud_printer = new CloudPrinter("API Key", '设备ID', '设备密码', true);
 ```
 
-### 刷新设备信息
-
-```php
-// 获取设备信息
-print_r($cloud_printer->refreshDeviceInfo());
-```
-
-### 获取设备信息
+### 1. 获取设备信息
 
 ```php
 // 获取设备信息
 print_r($cloud_printer->getDeviceInfo());
 ```
 
-### 获取打印机列表
+### 2. 获取打印机列表
 
 ```php
 $printer_list = $cloud_printer->getPrinterList();
 print_r($printer_list)
 ```
 
-### 获取打印机参数
+打印机更换=》刷新设备信息
+
+```php
+// 获取设备信息
+print_r($cloud_printer->refreshDeviceInfo());
+```
+
+### 3. 获取打印机参数
 
 ```php
 $printer_list = $cloud_printer->getPrinterList();
@@ -48,7 +48,7 @@ foreach ($printer_list as &$printer) {
 }
 ```
 
-### 发起打印任务
+### 4. 发起打印任务
 
 ```php
 // A4值对应paper_size值为9，其他请参考打印机参数
@@ -62,7 +62,7 @@ https://segmentfault.com/a/1190000000635183
 
 https://stackoverflow.com/questions/4003989/upload-a-file-using-file-get-contents/4247082#4247082
 
-### 查询任务结果
+### 5. 查询任务结果
 
 ```php
 $task_id = '任务id';
