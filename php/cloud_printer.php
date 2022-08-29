@@ -100,19 +100,6 @@ class CloudPrinter
     return $response;
   }
   
-  public function refreshDeviceInfo()
-  /*
-  * 同步刷新设备信息，包括打印机信息
-  */
-  {
-    $data = array(
-      "deviceId" => $this->device_id,
-      "deviceKey" => $this->device_key,
-    );
-    $response = $this->requests("GET", 'api/device/refresh_device_info?' . http_build_query($data));
-    return $response;
-  }
-
   public function getPrinterList()
   /*
   * 打印机列表
