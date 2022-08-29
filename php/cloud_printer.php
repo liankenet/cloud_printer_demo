@@ -187,23 +187,4 @@ class CloudPrinter
     $response = $this->requests("DELETE", 'api/print/job?' . http_build_query($data));
     return $response;
   }
-  
-  public function getPage($device_port, $printer_model, $paper_size, $file, $orientation, $optional_array = array())
-  /*
-  * 获取文件页数
-  */
-  {
-    $data = array(
-      "deviceId" => $this->device_id,
-      "deviceKey" => $this->device_key,
-      "devicePort" => $device_port,
-      "printerModel" => $printer_model,
-      "dmPaperSize" => $paper_size,
-      "dmOrientation" => $orientation,
-      "jobFile" => $file
-    );
-    $data = array_merge($data, $optional_array);
-    $response = $this->requests("POST", 'api/print/file_pages', $data, "multipart/form-data");
-    return $response->data;
-  }
 }
