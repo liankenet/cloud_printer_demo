@@ -31,7 +31,7 @@ print_r($printer_list)
 
 ```php
 // 获取设备信息
-print_r($cloud_printer->refreshDeviceInfo());
+print_r($cloud_printer->asyncRefreshDeviceInfo());
 ```
 
 ### 3. 获取打印机参数
