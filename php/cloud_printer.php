@@ -38,7 +38,7 @@ class CloudPrinter
       "ApiKey: " . $this->api_key
     );
     if ($method == "POST") {
-      $headers = array_push($headers, 'Content-Type: ' . $content_type);
+      array_push($headers, 'Content-Type: ' . $content_type);
     }
 
     curl_setopt_array($curl, array(
@@ -87,19 +87,19 @@ class CloudPrinter
     return $response->data;
   }
 
-  public function refreshDeviceInfo()
+  public function asyncRefreshDeviceInfo()
   /*
-  * 刷新设备信息，包括打印机信息
+  * 异步刷新设备信息，包括打印机信息
   */
   {
     $data = array(
       "deviceId" => $this->device_id,
       "deviceKey" => $this->device_key,
     );
-    $response = $this->requests("GET", 'api/device/refresh_device_info?' . http_build_query($data));
+    $response = $this->requests("GET", 'api/device/async_refresh_device_info?' . http_build_query($data));
     return $response;
   }
-
+  
   public function getPrinterList()
   /*
   * 打印机列表
