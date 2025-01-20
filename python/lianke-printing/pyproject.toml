@@ -22,17 +22,17 @@ keywords = ["lianke-printing"]
 
 [tool.poetry.dependencies]
 # Compatible Python versions
-python = ">=3.7,<4"
+python = ">=3.8,<4"
 # Dependency with extras
 requests = { version = ">=2.28", extras = ["security"] }
 
 
 [tool.poetry.group.dev.dependencies]
-pre-commit = "^2.6"
+pre-commit = "^3"
 
 [tool.poetry.group.test.dependencies]
 # Cachy frozen to test backwards compatibility for `poetry.utils.cache`.
-pytest = "^7.1"
+pytest = "^8.3.4"
 pytest-cov = "^4.0"
 pytest-mock = "^3.9"
 pytest-randomly = "^3.12"
@@ -40,4 +40,4 @@ pytest-xdist = { version = "^3.1", extras = ["psutil"] }
 
 [tool.black]
 line-length = 120
-target-version = ['py36', 'py37', 'py38']
+target-version = ['py38', 'py39', 'py310', 'py311']

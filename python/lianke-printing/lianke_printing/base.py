@@ -1,29 +1,9 @@
 import requests
-
-
-class LiankePrintingException(Exception):
-    def __init__(self, code: [int, None], msg: str, client=None, request=None, response=None):
-        """
-        :param code: Error code
-        :param msg: Error message
-        """
-        self.code = code
-        self.msg = msg
-        self.client = client
-        self.request = request
-        self.response = response
-
-    def __str__(self):
-        s = f"Error code: {self.code}, message: {self.msg}"
-        return s
-
-    def __repr__(self):
-        _repr = f"{self.__class__.__name__}({self.code}, {self.msg})"
-        return _repr
+from lianke_printing.exceptions import LiankePrintingException
 
 
 class LiankePrintingBase:
-    API_BASE_URL = "https://cloud.wisiyilink.com/api"
+    API_BASE_URL = "https://cloud.liankenet.com/api"
 
     def __init__(self, api_key: str, device_id: str, device_key: str):
         self._http = requests.Session()
@@ -39,9 +19,9 @@ class LiankePrintingBase:
             url = url_or_endpoint
 
         if "headers" not in kwargs:
-            kwargs["headers"] = {"API_KEY": self.api_key}
+            kwargs["headers"] = {"ApiKey": self.api_key}
         else:
-            kwargs["headers"]["API_KEY"] = self.api_key
+            kwargs["headers"]["ApiKey"] = self.api_key
 
         res = self._http.request(method=method, url=url, **kwargs)
         try:
